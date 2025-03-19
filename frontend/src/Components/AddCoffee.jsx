@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router";
 const AddCoffee = () => {
     const navigate = useNavigate();
     return (
-        <div className="md:w-10/12 mx-auto">
+        <div className="md:w-10/12 mx-auto py-10">
             <NavLink className="btn bg-[#D2B48C] my-4" to={navigate(-1)}>Back to home</NavLink>
             <div className="bg-[#F4F3F0] md:p-10 p-4">
                 <h2 className="text-center text-3xl font-rancho">Add New Coffee</h2>
