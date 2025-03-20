@@ -54,7 +54,7 @@ const SingleCard = ({coffee, coffees, setCoffees}) => {
                 <div className="flex justify-center items-center">
                     <div className="join join-vertical space-y-2">
                         <NavLink to={`/coffees/${_id}`} className="btn join-item"><FaEye /></NavLink>
-                        <button className="btn join-item" ><MdEditSquare /></button>
+                        <NavLink to={`/updateCoffee/${_id}`}className="btn join-item" ><MdEditSquare /></NavLink>
                         <button onClick={()=>handleDelete(_id)} className="btn join-item"><RiDeleteBin6Line /></button>
                     </div>
                 </div>
