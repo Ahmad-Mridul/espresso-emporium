@@ -23,10 +23,26 @@ async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
         const coffeeCollection = client.db("Espresso_Emporium").collection("Coffees");
+        const userCollection = client.db("Espresso_Emporium").collection("Users");
         await client.connect();
+        app.get('/coffees',async(req,res)=>{
+            const cursor = coffeeCollection.find({});
+            const allValues = await cursor.toArray();
+            res.send(allValues);
+        })
         app.get('/coffees/:id',async(req,res)=>{
             const id = req.params.id;
             const result = await coffeeCollection.findOne({_id: new ObjectId(id)});
+            res.send(result);
+        })
+        app.get("/users",async(req,res)=>{
+            const cursor = userCollection.find({});
+            const allValues = await cursor.toArray();
+            res.send(allValues);
+        })
+        app.post("/users",async(req,res)=>{
+            const newUser = req.body;
+            const result = await userCollection.insertOne(newUser);
             res.send(result);
         })
         app.post("/coffees",async(req,res)=>{
@@ -34,11 +50,7 @@ async function run() {
             const result = await coffeeCollection.insertOne(newCoffee);
             res.send(result);
         })
-        app.get('/coffees',async(req,res)=>{
-            const cursor = coffeeCollection.find({});
-            const allValues = await cursor.toArray();
-            res.send(allValues);
-        })
+        
         app.put("/coffees/:id",async(req,res)=>{
             const id = req.params.id;
             const filter = {_id:new ObjectId(id)};
