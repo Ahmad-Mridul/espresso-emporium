@@ -13,9 +13,9 @@ const Register = () => {
             document.body.style.backgroundColor = ""; // Reset when leaving
         }
 
-        // return () => {
-        //     document.body.style.backgroundColor = ""; // Cleanup when unmounting
-        // };
+        return () => {
+            document.body.style.backgroundColor = ""; // Cleanup when unmounting
+        };
     }, [location.pathname]);
     const handleSubmit = e => {
         e.preventDefault();
@@ -27,7 +27,7 @@ const Register = () => {
         .then((result) => {
             console.log(result);
             
-            fetch('http://localhost:3000/users',{
+            fetch('https://espresso-emporium-server-opal.vercel.app/users',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

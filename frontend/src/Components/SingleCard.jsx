@@ -16,7 +16,7 @@ const SingleCard = ({coffee, coffees, setCoffees}) => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
-            fetch(`http://localhost:3000/coffees/${_id}`,{
+            fetch(`https://espresso-emporium-server-opal.vercel.app/coffees/${_id}`,{
                 method: 'DELETE'
             })
             .then(res=>res.json())

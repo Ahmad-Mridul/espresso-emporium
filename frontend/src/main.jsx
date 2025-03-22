@@ -26,12 +26,12 @@ const router = createBrowserRouter([
       {
         path:"/coffees/:id",
         element:<CoffeeDetails></CoffeeDetails>,
-        loader:({params})=>fetch(`http://localhost:3000/coffees/${params.id}`)
+        loader:({params})=>fetch(`https://espresso-emporium-server-opal.vercel.app/coffees/${params.id}`)
       },
       {
         path:"/updateCoffee/:id",
         element:<UpdateCoffee></UpdateCoffee>,
-        loader:({params})=>fetch(`http://localhost:3000/coffees/${params.id}`)
+        loader:({params})=>fetch(`https://espresso-emporium-server-opal.vercel.app/coffees/${params.id}`)
       },
       {
         path:"/login",

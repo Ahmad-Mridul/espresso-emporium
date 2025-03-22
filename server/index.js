@@ -1,5 +1,5 @@
-const express = require('express');
 require('dotenv').config();
+const express = require('express');
 const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const port = process.env.PORT || 3000;
@@ -24,7 +24,7 @@ async function run() {
         // Connect the client to the server	(optional starting in v4.7)
         const coffeeCollection = client.db("Espresso_Emporium").collection("Coffees");
         const userCollection = client.db("Espresso_Emporium").collection("Users");
-        await client.connect();
+        // await client.connect();
         app.get('/coffees',async(req,res)=>{
             const cursor = coffeeCollection.find({});
             const allValues = await cursor.toArray();
@@ -77,7 +77,7 @@ async function run() {
             res.send(deleteResult);
         })
         // Send a ping to confirm a successful connection
-        await client.db("admin").command({ ping: 1 });
+        // await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
     }catch(e) {
         console.log(e);

@@ -16,7 +16,7 @@ const AddCoffee = () => {
         const details = form.details.value;
         const photo = form.photo.value;
         const newCoffee = {name,chef,supplier,taste,category,details,photo};
-        fetch('http://localhost:3000/coffees',{
+        fetch('https://espresso-emporium-server-opal.vercel.app/coffees',{
             method:'POST',
             headers:{
                 'content-type': 'application/json'
